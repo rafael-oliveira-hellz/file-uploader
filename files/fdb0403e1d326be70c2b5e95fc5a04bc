@@ -1,0 +1,43 @@
+1 - sudo update-alternatives --config php (rodar PHP 7.4)
+2 - laravel new ProjectName
+3 - npm init -y
+4 - npm install laravel-mix --save-dev
+5 - cp node_modules/laravel-mix/setup/webpack.mix.js ./
+6 - Head over to your webpack.mix.js file:
+
+const mix = require('laravel-mix');
+
+mix.js('resource/js/scripts.js', 'public/js')
+   .sass('resource/scss/styles.scss', 'public/css')
+   .setPublicPath('public');
+7 - Head over to your package.json file:
+
+"scripts": {
+    "dev": "npm run development",
+    "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "watch": "npm run development -- --watch",
+    "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "prod": "npm run production",
+    "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
+}
+8 - npm install cross-env --save-dev
+9 - run 'yarn' command from the project root directory
+10 - composer require laravel/ui --dev
+11 - php artisan ui bootstrap --auth
+12 - php artisan key:generate
+
+-- Conectando ao Git/Bitbucket
+
+1 - Criar repositório remoto
+2 - Copiar endereço do repositório
+3 - git init na pasta root do projeto
+4 - git add .
+5 - git remote add origin EndereçoDoRepositório
+6 - git commit
+7 - git push -u origin master
+
+-- COMPOSER FORK FAILED
+
+sudo /bin/dd if=/dev/zero of=/var/swap.1 bs=1M count=1024
+sudo /sbin/mkswap /var/swap.1
+sudo /sbin/swapon /var/swap.1
